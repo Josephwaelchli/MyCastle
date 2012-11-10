@@ -18,15 +18,16 @@
     nc = [[UINavigationController alloc] initWithRootViewController:[[MainPage alloc] init]];
     [nc setNavigationBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window addSubview: nc.view];
+    //[self.window addSubview: nc.view];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = self.nc;
-    
+
     //set up the loading screen which will be used throughout the app
     [self setUpLoader];
     
+    NSLog(@"Testing");
     internetReachable = [Reachability reachabilityForInternetConnection];
 	[internetReachable startNotifier];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
@@ -34,7 +35,11 @@
     
     [self setUpMap];
     
+    self.window.rootViewController = self.nc;
+
+
     //Set up the map for the "reach us page". It is done in the app delegate to give the app time to find the user's current location before they go to the map. Otherwise bad things happen.
+
     
     return YES;
 

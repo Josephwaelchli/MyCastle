@@ -12,6 +12,7 @@
 		B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* SocialConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
+		CA422F06164EFD58006C00EA /* electricity.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F05164EFD58006C00EA /* electricity.png */; };
 		CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180C164EAD8700484D97 /* UIKit.framework */; };
 		CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180E164EAD8700484D97 /* Foundation.framework */; };
 		CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA591810164EAD8700484D97 /* CoreGraphics.framework */; };
@@ -105,6 +106,7 @@
 		B77A15B2164EC18600F0803A /* SocialConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialConnector.m; sourceTree = "<group>"; };
 		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B77A1736164ECE9000F0803A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CA422F05164EFD58006C00EA /* electricity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = electricity.png; sourceTree = "<group>"; };
 		CA591808164EAD8700484D97 /* MyCastle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCastle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA59180C164EAD8700484D97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA59180E164EAD8700484D97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -275,9 +277,26 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
+		CA422F03164EFD47006C00EA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CA422F07164EFDAB006C00EA /* MainMenu */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CA422F07164EFDAB006C00EA /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CA422F05164EFD58006C00EA /* electricity.png */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
+				CA422F03164EFD47006C00EA /* Images */,
 				CA59191C164EDFAA00484D97 /* QuartzCore.framework */,
 				CA591910164ED92400484D97 /* Accounts.framework */,
 				CA591812164EAD8700484D97 /* MyCastle */,
@@ -581,6 +600,7 @@
 				CA59190C164ED7D000484D97 /* twitter_load.png in Resources */,
 				CA591916164EDA3300484D97 /* TwitterController.xib in Resources */,
 				CA591937164EE89100484D97 /* ResultsList.xib in Resources */,
+				CA422F06164EFD58006C00EA /* electricity.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
