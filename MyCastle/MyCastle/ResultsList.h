@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultsList : UIViewController
+@interface ResultsList : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    
+}
 
+-(IBAction)backButtonPressed:(id)sender;
 @end

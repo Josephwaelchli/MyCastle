@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B7514EEF164ED762003A9372 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7514EEE164ED762003A9372 /* FacebookSDK.framework */; };
-		B7514F00164EDBE7003A9372 /* ResultsList.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514EFE164EDBE7003A9372 /* ResultsList.m */; };
-		B7514F01164EDBE7003A9372 /* ResultsList.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514EFF164EDBE7003A9372 /* ResultsList.xib */; };
-		B7514F02164EDBFC003A9372 /* ResultsList.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514EFE164EDBE7003A9372 /* ResultsList.m */; };
 		B7514F0D164EDE5C003A9372 /* FacebookConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F0C164EDE5C003A9372 /* FacebookConnector.m */; };
 		B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* SocialConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
@@ -86,6 +83,8 @@
 		CA59192C164EE1A700484D97 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5918F2164ED7CF00484D97 /* NSString+UUID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA59192D164EE1A700484D97 /* SA_OAuthTwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5918F5164ED7CF00484D97 /* SA_OAuthTwitterController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA59192E164EE1A700484D97 /* SA_OAuthTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5918F7164ED7CF00484D97 /* SA_OAuthTwitterEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CA591936164EE89100484D97 /* ResultsList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA591934164EE89100484D97 /* ResultsList.m */; };
+		CA591937164EE89100484D97 /* ResultsList.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA591935164EE89100484D97 /* ResultsList.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,9 +99,6 @@
 
 /* Begin PBXFileReference section */
 		B7514EEE164ED762003A9372 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		B7514EFD164EDBE7003A9372 /* ResultsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsList.h; sourceTree = "<group>"; };
-		B7514EFE164EDBE7003A9372 /* ResultsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsList.m; sourceTree = "<group>"; };
-		B7514EFF164EDBE7003A9372 /* ResultsList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsList.xib; sourceTree = "<group>"; };
 		B7514F0B164EDE5C003A9372 /* FacebookConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnector.h; sourceTree = "<group>"; };
 		B7514F0C164EDE5C003A9372 /* FacebookConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnector.m; sourceTree = "<group>"; };
 		B77A15B1164EC18600F0803A /* SocialConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialConnector.h; sourceTree = "<group>"; };
@@ -225,6 +221,9 @@
 		CA591913164EDA3300484D97 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		CA591914164EDA3300484D97 /* TwitterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterController.xib; sourceTree = "<group>"; };
 		CA59191C164EDFAA00484D97 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CA591933164EE89100484D97 /* ResultsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsList.h; sourceTree = "<group>"; };
+		CA591934164EE89100484D97 /* ResultsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsList.m; sourceTree = "<group>"; };
+		CA591935164EE89100484D97 /* ResultsList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsList.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,12 +327,12 @@
 				CA59187B164EB27800484D97 /* MainPage.h */,
 				CA59187C164EB27800484D97 /* MainPage.m */,
 				CA59187D164EB27800484D97 /* MainPage.xib */,
-				B7514EFD164EDBE7003A9372 /* ResultsList.h */,
-				B7514EFE164EDBE7003A9372 /* ResultsList.m */,
-				B7514EFF164EDBE7003A9372 /* ResultsList.xib */,
 				CA591912164EDA3300484D97 /* TwitterController.h */,
 				CA591913164EDA3300484D97 /* TwitterController.m */,
 				CA591914164EDA3300484D97 /* TwitterController.xib */,
+				CA591933164EE89100484D97 /* ResultsList.h */,
+				CA591934164EE89100484D97 /* ResultsList.m */,
+				CA591935164EE89100484D97 /* ResultsList.xib */,
 				B77A1733164ECDB900F0803A /* Objects */,
 				CA591813164EAD8700484D97 /* Supporting Files */,
 			);
@@ -581,6 +580,7 @@
 				CA5918FA164ED7CF00484D97 /* jQueryInjectLandscape.txt in Resources */,
 				CA59190C164ED7D000484D97 /* twitter_load.png in Resources */,
 				CA591916164EDA3300484D97 /* TwitterController.xib in Resources */,
+				CA591937164EE89100484D97 /* ResultsList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +590,6 @@
 			files = (
 				CA59183E164EAD8800484D97 /* InfoPlist.strings in Resources */,
 				CA591881164EB27800484D97 /* MainPage.xib in Resources */,
-				B7514F01164EDBE7003A9372 /* ResultsList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +648,8 @@
 				CA59186D164EB1D000484D97 /* ASIDataDecompressor.m in Sources */,
 				CA59187E164EB27800484D97 /* MainPage.m in Sources */,
 				B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */,
-				B7514F02164EDBFC003A9372 /* ResultsList.m in Sources */,
 				B7514F0D164EDE5C003A9372 /* FacebookConnector.m in Sources */,
+				CA591936164EE89100484D97 /* ResultsList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +670,6 @@
 				CA591878164EB1D000484D97 /* ASINetworkQueue.m in Sources */,
 				CA59187A164EB1D000484D97 /* Reachability.m in Sources */,
 				CA59187F164EB27800484D97 /* MainPage.m in Sources */,
-				B7514F00164EDBE7003A9372 /* ResultsList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

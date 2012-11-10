@@ -16,14 +16,12 @@
 {
     nc = [[UINavigationController alloc] initWithRootViewController:[[MainPage alloc] init]];
     [nc setNavigationBarHidden:YES];
-    
-    self.window.rootViewController = self.nc;
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window addSubview: nc.view];
     [self.window makeKeyAndVisible];
+    self.window.rootViewController = self.nc;
     
     //set up the loading screen which will be used throughout the app
     [self setUpLoader];

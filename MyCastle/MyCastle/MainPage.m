@@ -9,7 +9,10 @@
 #import "MainPage.h"
 #import "AppDelegate.h"
 #import "DatabaseConnector.h"
+#import "FacebookConnector.h"
+#import <FacebookSDK/FacebookSDK.h>
 #import "TwitterController.h"
+#import "ResultsList.h"
 
 @interface MainPage ()
 
@@ -41,14 +44,25 @@
         NSString* userName = [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"user_Name"];
         [theAppDel appStoppedLoading];
         
-        //set the phoneNumberTextView to the phone number string. The textview on the nib automatically detects phone numbers, so if you click the number, it will give you the option to call that number.
         [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
     }
+}
+
+-(IBAction)loginFacebookButtonPressed
+{
+    FacebookConnector* fbc = [[FacebookConnector alloc] init];
+    [fbc openSession];
+    [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
 }
 
 -(IBAction)twitterButtonPressed:(id)sender
 {
     [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
+}
+
+-(IBAction)resultsButtonPressed:(id)sender
+{
+    [self.navigationController pushViewController:[[ResultsList alloc] init] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

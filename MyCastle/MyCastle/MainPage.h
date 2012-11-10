@@ -16,6 +16,8 @@
 
 @property (nonatomic,retain) AppDelegate* theAppDel;
 
+-(IBAction)loginFacebookButtonPressed;
 -(IBAction)twitterButtonPressed:(id)sender;
+-(IBAction)resultsButtonPressed:(id)sender;
 
 @end
