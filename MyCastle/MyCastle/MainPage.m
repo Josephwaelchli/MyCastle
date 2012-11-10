@@ -7,18 +7,22 @@
 //
 
 #import "MainPage.h"
+#import "AppDelegate.h"
+#import "DatabaseConnector.h"
 
 @interface MainPage ()
 
 @end
 
 @implementation MainPage
+@synthesize theAppDel;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
+        theAppDel = [[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -27,6 +31,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if(theAppDel.hasInternetConnection)
+    {
+        DatabaseConnector* dbc = [[DatabaseConnector alloc] init];
+        NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM users"];
+        NSDictionary* queryDict = [[NSDictionary alloc] initWithObjectsAndKeys:queryString, @"query", nil];
+        NSString* userName = [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"user_Name"];
+        [theAppDel appStoppedLoading];
+        
+        //set the phoneNumberTextView to the phone number string. The textview on the nib automatically detects phone numbers, so if you click the number, it will give you the option to call that number.
+        [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
+    }
 }
 
 - (void)didReceiveMemoryWarning

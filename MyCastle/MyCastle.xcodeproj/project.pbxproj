@@ -158,13 +158,6 @@
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
-				CA59188F164EB56D00484D97 /* libz.dylib */,
-				CA59188D164EB56200484D97 /* MessageUI.framework */,
-				CA59188B164EB55900484D97 /* SystemConfiguration.framework */,
-				CA591889164EB55000484D97 /* MobileCoreServices.framework */,
-				CA591887164EB54600484D97 /* CFNetwork.framework */,
-				CA591885164EB53400484D97 /* MapKit.framework */,
-				CA591883164EB52E00484D97 /* CoreLocation.framework */,
 				CA591812164EAD8700484D97 /* MyCastle */,
 				CA591839164EAD8800484D97 /* MyCastleTests */,
 				CA59180B164EAD8700484D97 /* Frameworks */,
@@ -184,6 +177,13 @@
 		CA59180B164EAD8700484D97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA59188F164EB56D00484D97 /* libz.dylib */,
+				CA59188D164EB56200484D97 /* MessageUI.framework */,
+				CA59188B164EB55900484D97 /* SystemConfiguration.framework */,
+				CA591889164EB55000484D97 /* MobileCoreServices.framework */,
+				CA591887164EB54600484D97 /* CFNetwork.framework */,
+				CA591885164EB53400484D97 /* MapKit.framework */,
+				CA591883164EB52E00484D97 /* CoreLocation.framework */,
 				CA59180C164EAD8700484D97 /* UIKit.framework */,
 				CA59180E164EAD8700484D97 /* Foundation.framework */,
 				CA591810164EAD8700484D97 /* CoreGraphics.framework */,
