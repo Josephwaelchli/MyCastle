@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
+#import <FacebookSDK/FacebookSDK.h>
+@class  ASIHTTPRequest;
+@class  ASIFormDataRequest;
 
 @interface SocialConnector : NSObject
 {

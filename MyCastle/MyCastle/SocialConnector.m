@@ -7,6 +7,8 @@
 //
 
 #import "SocialConnector.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @implementation SocialConnector
 
