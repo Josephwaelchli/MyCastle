@@ -50,9 +50,14 @@
 
 -(IBAction)loginFacebookButtonPressed
 {
-    FacebookConnector* fbc = [[FacebookConnector alloc] init];
-    [fbc openSession];
-    [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
+    if(![FacebookConnector isLoggedInToFacebook])
+    {
+        [FacebookConnector openSession];
+    }
+    else
+    {
+        NSLog(@"already logged in");
+    }
 }
 
 -(IBAction)twitterButtonPressed:(id)sender
