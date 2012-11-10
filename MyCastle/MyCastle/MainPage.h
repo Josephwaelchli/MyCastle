@@ -16,4 +16,6 @@
 
 @property (nonatomic,retain) AppDelegate* theAppDel;
 
+-(IBAction)twitterButtonPressed:(id)sender;
+
 @end

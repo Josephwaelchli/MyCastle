@@ -9,6 +9,7 @@
 #import "MainPage.h"
 #import "AppDelegate.h"
 #import "DatabaseConnector.h"
+#import "TwitterController.h"
 
 @interface MainPage ()
 
@@ -43,6 +44,11 @@
         //set the phoneNumberTextView to the phone number string. The textview on the nib automatically detects phone numbers, so if you click the number, it will give you the option to call that number.
         [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
     }
+}
+
+-(IBAction)twitterButtonPressed:(id)sender
+{
+    [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -34,6 +34,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewDidAppear: (BOOL)animated
+{
+    if(!_engine){
+        _engine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self];
+        _engine.consumerKey    = kOAuthConsumerKey;
+        _engine.consumerSecret = kOAuthConsumerSecret;
+    }
+    UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:_engine delegate:self];
+        if (controller){
+            //[self presentModalViewController: controller animated: YES];
+            [self presentViewController:controller animated:YES completion:nil];
+        }
+    
+    _engine 
+}
+
 -(IBAction)updateTwitter:(id)sender
 {
     
