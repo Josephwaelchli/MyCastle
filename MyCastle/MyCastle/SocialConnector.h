@@ -14,9 +14,15 @@
 {
     NSString* url;
     NSString* method;
-}@property(retain, nonatomic)NSMutableArray* singleQueryArrayHolder;
-@property(retain, nonatomic)NSMutableArray* currentElementsArrayHolder;
-@property(nonatomic)int currArray;
+    NSString* currentElement;
+    
+    NSMutableString* currentPhone;
+    NSMutableString* currentStreet;
+    NSMutableString* currentBusiness;
+    
+    NSMutableDictionary* item;
+    
+}@property(nonatomic, strong)NSMutableArray* items;
 
 -(id)initWithUrl:(NSString*)urlString andMethod:(NSString*)methodString;
 -(void)asynchronousUrlCall:(NSDictionary*)callDict;

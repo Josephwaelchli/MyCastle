@@ -17,6 +17,7 @@
     self = [super init];
     url = urlString;
     method = methodString;
+    self.items = [[NSMutableArray alloc] init];
     return self;
 }
 
@@ -61,24 +62,99 @@
     }
     getVars = [getVars substringToIndex:[getVars length] - 1];
     request.url =  [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NSString stringWithFormat:@"%@",request.url], getVars]];
-    NSLog(@"%@", request.url);
     return request;
 }
 
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
-    
+    @try
+    {
+        currentElement = [elementName copy];
+        if ([elementName isEqualToString:@"searchListing"])
+        {
+            item = [[NSMutableDictionary alloc] init];
+            currentPhone = [[NSMutableString alloc] init];
+            currentStreet = [[NSMutableString alloc] init];
+            currentBusiness = [[NSMutableString alloc] init];
+        }
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@", exception.reason);
+    }
+    @finally
+    {
+        // NSLog(@"finally");
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    
+    @try
+    {
+        if ([elementName isEqualToString:@"searchListing"])
+        {
+            [item setObject:currentPhone forKey:@"phone"];
+            [item setObject:currentBusiness forKey:@"name"];
+            [item setObject:currentStreet forKey:@"address"];
+            
+            [self.items addObject:[item copy]];
+        }
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@", exception.reason);
+    }
+    @finally
+    {
+        // NSLog(@"finally");
+    }
 }
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    @try
+    {
+        if([currentElement isEqualToString:@"phone"])
+        {
+            [currentPhone appendString:string];
+        }
+        else if([currentElement isEqualToString:@"businessName"])
+        {
+            [currentBusiness appendString:string];
+        }
+        else if([currentElement isEqualToString:@"street"])
+        {
+            [currentStreet appendString:string];
+        }
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@", exception.reason);
+    }
+    @finally
+    {
+        // NSLog(@"finally");
+    }
+}
+
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSLog(@"%@", self.singleQueryArrayHolder);
+    @try
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"YPSearchParsed" object:self];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@", exception.reason);
+    }
+    @finally
+    {
+        // NSLog(@"parserDidEndDocument: finally\n");
+    }
+
 }
 
 @end
