@@ -11,6 +11,9 @@
 @class AppDelegate;
 
 @interface FacebookConnector : NSObject <FBLoginViewDelegate>
+{
+
+}
 
 + (BOOL)isLoggedInToFacebook;
 +(void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error;

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 @class  ASIHTTPRequest;
 @class  ASIFormDataRequest;
-
-@interface SocialConnector : NSObject
+ 
+@interface SocialConnector : NSObject <NSXMLParserDelegate>
 {
     NSString* url;
     NSString* method;

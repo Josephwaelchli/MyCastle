@@ -38,7 +38,10 @@
     [formDataRequest setCompletionBlock:^{
         NSLog(@"called.");
         //post notification
-    
+        NSData* data = [request responseData];
+        NSXMLParser* xmlParse = [[NSXMLParser alloc] initWithData:data];
+        xmlParse.delegate = self;
+        [xmlParse parse];
     }];
     [formDataRequest setFailedBlock:^{
         NSError *error = [request error];
@@ -59,5 +62,12 @@
     request.url =  [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NSString stringWithFormat:@"%@",request.url], getVars]];
     return request;
 }
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+    NSLog(@"%@-%@", elementName, attributeDict);
+    
+}
+
 
 @end

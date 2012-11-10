@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SocialConnector;
 
 @interface ResultsList : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    
+    SocialConnector* externalConnector;
 }
 
 -(IBAction)backButtonPressed:(id)sender;

@@ -7,6 +7,7 @@
 //
 
 #import "ResultsList.h"
+#import "SocialConnector.h"
 
 @interface ResultsList ()
 
@@ -28,6 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+#pragma mark table view delegation
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -86,7 +89,6 @@
         [self.navigationController pushViewController:[[PdfViewer alloc] initWithPdf:url] animated:YES];
     }
 }*/
-
 
 -(IBAction)backButtonPressed:(id)sender
 {

@@ -20,5 +20,6 @@
 -(IBAction)twitterButtonPressed:(id)sender;
 -(IBAction)resultsButtonPressed:(id)sender;
 -(IBAction)facebookLogoutButtonPressed;
+-(IBAction)testButtonPressed;
 
 @end
