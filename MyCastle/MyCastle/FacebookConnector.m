@@ -19,6 +19,7 @@
 
 + (BOOL)isLoggedInToFacebook
 {
+    NSLog(@"%u, %u", FBSession.activeSession.state, FBSessionStateCreatedTokenLoaded);
     return FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded;
 }
 

@@ -70,6 +70,11 @@
     [self.navigationController pushViewController:[[ResultsList alloc] init] animated:YES];
 }
 
+-(IBAction)facebookLogoutButtonPressed
+{
+    [FacebookConnector closeSession];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
