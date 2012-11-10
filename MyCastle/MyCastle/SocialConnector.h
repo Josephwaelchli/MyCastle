@@ -14,7 +14,9 @@
 {
     NSString* url;
     NSString* method;
-}
+}@property(retain, nonatomic)NSMutableArray* singleQueryArrayHolder;
+@property(retain, nonatomic)NSMutableArray* currentElementsArrayHolder;
+@property(nonatomic)int currArray;
 
 -(id)initWithUrl:(NSString*)urlString andMethod:(NSString*)methodString;
 -(void)asynchronousUrlCall:(NSDictionary*)callDict;

@@ -28,7 +28,7 @@
     [formDataRequest setRequestMethod:method];
     if([formDataRequest.requestMethod isEqualToString:@"GET"])
     {
-        [self setGetParameters:formDataRequest withParameters:[callDict objectForKey:@"parameters"]];
+        [self setGetParameters:formDataRequest withParameters:callDict];
     }
     else
     {
@@ -41,6 +41,7 @@
         NSData* data = [request responseData];
         NSXMLParser* xmlParse = [[NSXMLParser alloc] initWithData:data];
         xmlParse.delegate = self;
+        xmlParse.shouldProcessNamespaces = YES;
         [xmlParse parse];
     }];
     [formDataRequest setFailedBlock:^{
@@ -60,14 +61,24 @@
     }
     getVars = [getVars substringToIndex:[getVars length] - 1];
     request.url =  [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[NSString stringWithFormat:@"%@",request.url], getVars]];
+    NSLog(@"%@", request.url);
     return request;
 }
 
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
 {
-    NSLog(@"%@-%@", elementName, attributeDict);
     
 }
 
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    
+}
+
+-(void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    NSLog(@"%@", self.singleQueryArrayHolder);
+}
 
 @end
