@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7514EEF164ED762003A9372 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7514EEE164ED762003A9372 /* FacebookSDK.framework */; };
 		B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* SocialConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
-		B77A17BF164ED68900F0803A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A17BE164ED68900F0803A /* FacebookSDK.framework */; };
 		CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180C164EAD8700484D97 /* UIKit.framework */; };
 		CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180E164EAD8700484D97 /* Foundation.framework */; };
 		CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA591810164EAD8700484D97 /* CoreGraphics.framework */; };
@@ -73,11 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7514EEE164ED762003A9372 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B77A15B1164EC18600F0803A /* SocialConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialConnector.h; sourceTree = "<group>"; };
 		B77A15B2164EC18600F0803A /* SocialConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialConnector.m; sourceTree = "<group>"; };
 		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B77A1736164ECE9000F0803A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		B77A17BE164ED68900F0803A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CA591808164EAD8700484D97 /* MyCastle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCastle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA59180C164EAD8700484D97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA59180E164EAD8700484D97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,7 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B77A17BF164ED68900F0803A /* FacebookSDK.framework in Frameworks */,
 				B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */,
 				B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */,
 				CA591890164EB56D00484D97 /* libz.dylib in Frameworks */,
@@ -155,6 +154,7 @@
 				CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */,
 				CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */,
 				CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */,
+				B7514EEF164ED762003A9372 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
-				B77A17BE164ED68900F0803A /* FacebookSDK.framework */,
+				B7514EEE164ED762003A9372 /* FacebookSDK.framework */,
 				B77A1736164ECE9000F0803A /* AdSupport.framework */,
 				B77A1734164ECE8700F0803A /* Accelerate.framework */,
 				CA591812164EAD8700484D97 /* MyCastle */,
