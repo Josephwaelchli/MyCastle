@@ -49,8 +49,14 @@
 
 -(IBAction)loginFacebookButtonPressed
 {
-    FacebookConnector* fbc = [[FacebookConnector alloc] init];
-    [fbc openSession];
+    if(![FacebookConnector isLoggedInToFacebook])
+    {
+        [FacebookConnector openSession];
+    }
+    else
+    {
+        NSLog(@"already logged in");
+    }
 }
 
 - (void)didReceiveMemoryWarning
