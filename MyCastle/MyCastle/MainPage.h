@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class AppDelegate;
 
-@interface MainPage : UIViewController
+@interface MainPage : UIViewController <MKReverseGeocoderDelegate>
 {
    IBOutlet UILabel* theLabel;
 }

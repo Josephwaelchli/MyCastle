@@ -48,6 +48,10 @@
 -(IBAction)twitterButtonPressed:(id)sender
 {
     [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
+    
+    CLLocationCoordinate2D coord;
+	coord.longitude = theAppDel.theMap.userLocation.coordinate.longitude;
+	coord.latitude = theAppDel.theMap.userLocation.coordinate.latitude;
 }
 
 -(IBAction)resultsButtonPressed:(id)sender
@@ -58,6 +62,7 @@
 -(IBAction)facebookLogoutButtonPressed
 {
     [FacebookConnector closeSession];
+    
 }
 
 -(IBAction)testButtonPressed
