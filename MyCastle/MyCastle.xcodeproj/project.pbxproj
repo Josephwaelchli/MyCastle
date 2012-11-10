@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* SocialConnector.m */; };
 		B77A1732164ECA7C00F0803A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15BC164ECA5600F0803A /* FacebookSDK.framework */; };
+		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
+		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
 		CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180C164EAD8700484D97 /* UIKit.framework */; };
 		CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180E164EAD8700484D97 /* Foundation.framework */; };
 		CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA591810164EAD8700484D97 /* CoreGraphics.framework */; };
@@ -372,6 +374,8 @@
 		B77A16E7164ECA5600F0803A /* SwitchUserSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwitchUserSample-Info.plist"; sourceTree = "<group>"; };
 		B77A16E8164ECA5600F0803A /* SwitchUserSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwitchUserSample-Prefix.pch"; sourceTree = "<group>"; };
 		B77A16E9164ECA5600F0803A /* SwitchUserSample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwitchUserSample.xcodeproj; sourceTree = "<group>"; };
+		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		B77A1736164ECE9000F0803A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CA591808164EAD8700484D97 /* MyCastle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCastle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA59180C164EAD8700484D97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA59180E164EAD8700484D97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -434,6 +438,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */,
+				B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */,
 				CA591890164EB56D00484D97 /* libz.dylib in Frameworks */,
 				CA59188E164EB56200484D97 /* MessageUI.framework in Frameworks */,
 				CA59188C164EB55900484D97 /* SystemConfiguration.framework in Frameworks */,
@@ -962,9 +968,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B77A1733164ECDB900F0803A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				CA59184A164EB1BC00484D97 /* Reachability */,
+				B77A15B1164EC18600F0803A /* SocialConnector.h */,
+				B77A15B2164EC18600F0803A /* SocialConnector.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
+				B77A1736164ECE9000F0803A /* AdSupport.framework */,
+				B77A1734164ECE8700F0803A /* Accelerate.framework */,
 				B77A15BB164ECA5600F0803A /* FacebookSDK */,
 				CA591812164EAD8700484D97 /* MyCastle */,
 				CA591839164EAD8800484D97 /* MyCastleTests */,
@@ -1004,14 +1022,12 @@
 		CA591812164EAD8700484D97 /* MyCastle */ = {
 			isa = PBXGroup;
 			children = (
-				CA59184A164EB1BC00484D97 /* Reachability */,
 				CA59181B164EAD8700484D97 /* AppDelegate.h */,
 				CA59181C164EAD8800484D97 /* AppDelegate.m */,
 				CA59187B164EB27800484D97 /* MainPage.h */,
 				CA59187C164EB27800484D97 /* MainPage.m */,
 				CA59187D164EB27800484D97 /* MainPage.xib */,
-				B77A15B1164EC18600F0803A /* SocialConnector.h */,
-				B77A15B2164EC18600F0803A /* SocialConnector.m */,
+				B77A1733164ECDB900F0803A /* Objects */,
 				CA591813164EAD8700484D97 /* Supporting Files */,
 			);
 			path = MyCastle;
@@ -1680,6 +1696,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyCastle/MyCastle-Prefix.pch";
 				INFOPLIST_FILE = "MyCastle/MyCastle-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1695,6 +1712,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyCastle/MyCastle-Prefix.pch";
 				INFOPLIST_FILE = "MyCastle/MyCastle-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

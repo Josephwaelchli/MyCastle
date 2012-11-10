@@ -12,10 +12,12 @@
 
 @interface SocialConnector : NSObject
 {
-    
+    NSString* url;
+    NSString* method;
 }
 
+-(id)initWithUrl:(NSString*)urlString andMethod:(NSString*)methodString;
 -(void)asynchronousUrlCall:(NSDictionary*)callDict;
--(ASIFormDataRequest*)setParameters:(ASIFormDataRequest*)request withParameters:(NSDictionary*)array;
+-(ASIFormDataRequest*)setGetParameters:(ASIFormDataRequest*)request withParameters:(NSDictionary*)array;
 
 @end
