@@ -7,24 +7,132 @@
 //
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
+#import "MainPage.h"
 
 @implementation AppDelegate
+@synthesize window = _window, nc, loadingImageView, loaderView, internetConnected, internetReachable, theMap;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    nc = [[UINavigationController alloc] initWithRootViewController:[[MainPage alloc] init]];
+    [nc setNavigationBarHidden:YES];
+    
+    self.window.rootViewController = self.nc;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-    }
-    self.window.rootViewController = self.viewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window addSubview: nc.view];
     [self.window makeKeyAndVisible];
+    
+    //set up the loading screen which will be used throughout the app
+    [self setUpLoader];
+    
+    internetReachable = [Reachability reachabilityForInternetConnection];
+	[internetReachable startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    [self checkNetworkStatus:nil];
+    
+    [self setUpMap];
+    
+    //Set up the map for the "reach us page". It is done in the app delegate to give the app time to find the user's current location before they go to the map. Otherwise bad things happen.
+    
     return YES;
+
 }
+
+- (void)setUpMap
+{
+    //initialize the map. This map is only used on the "ReachUsPage.m", but it must be initialized here because it takes a while to actually get the user's location. We need to make sure it already has the user's location by the time they click the map button in "ReachUsPage.m". Since it's here, it will start getting the users location right when the app starts.
+    theMap = [[MKMapView alloc] init];
+    
+    theMap.showsUserLocation = YES;
+}
+
+-(void)appStartedLoading
+{
+    [loadingImageView startAnimating];
+    [self.window addSubview:loaderView];
+}
+
+-(void)appStoppedLoading
+{
+    [loaderView removeFromSuperview];
+    [loadingImageView stopAnimating];
+}
+
+-(void)setUpLoader
+{
+    loaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, 460)];
+    loadingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 227, 227)];
+    NSArray* loadingArray=[[NSArray alloc] initWithObjects:
+                           [UIImage imageNamed:@"loader_1.png"],
+                           [UIImage imageNamed:@"loader_2.png"],
+                           [UIImage imageNamed:@"loader_3.png"],
+                           [UIImage imageNamed:@"loader_4.png"],
+                           [UIImage imageNamed:@"loader_5.png"],
+                           [UIImage imageNamed:@"loader_6.png"],
+                           [UIImage imageNamed:@"loader_7.png"],
+                           [UIImage imageNamed:@"loader_8.png"],
+                           [UIImage imageNamed:@"loader_9.png"],
+                           [UIImage imageNamed:@"loader_10.png"],
+                           [UIImage imageNamed:@"loader_11.png"],
+                           [UIImage imageNamed:@"loader_12.png"],
+                           [UIImage imageNamed:@"loader_13.png"],
+                           [UIImage imageNamed:@"loader_14.png"],
+                           [UIImage imageNamed:@"loader_15.png"],
+                           [UIImage imageNamed:@"loader_16.png"],
+                           [UIImage imageNamed:@"loader_17.png"],
+                           [UIImage imageNamed:@"loader_18.png"],
+                           nil];
+    loadingImageView.animationImages=loadingArray;
+    loadingImageView.animationDuration=1.0;
+    [loaderView setBackgroundColor:[UIColor colorWithWhite:0 alpha:.77]];
+    loadingImageView.center=CGPointMake(loaderView.bounds.size.width/2, loaderView.bounds.size.height/2);
+    [loaderView addSubview:loadingImageView];
+}
+
+-(void)checkNetworkStatus:(NSNotification*)notice
+{
+	NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+	switch (internetStatus)
+	{
+		case NotReachable:
+		{
+			self.internetConnected = NO;
+			if (![myAlertView window])
+			{
+                myAlertView = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Please connect to an active internet network." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [myAlertView show];
+            }
+			break;
+		}
+		default:
+		{
+			self.internetConnected = YES;
+			break;
+			
+		}
+	}
+}
+
+-(BOOL)hasInternetConnection
+{
+    if(!self.internetConnected)
+    {
+        if (![myAlertView window])
+        {
+            myAlertView = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Please connect to an active internet network." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [myAlertView show];
+        }
+    }
+    else
+    {
+        [NSThread detachNewThreadSelector:@selector(appStartedLoading) toTarget:self withObject:nil];
+    }
+    return self.internetConnected;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

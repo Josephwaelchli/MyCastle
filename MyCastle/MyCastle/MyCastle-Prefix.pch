@@ -12,3 +12,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define SQL_URL @"http://pwnindustries.com/mycastledbconnect.php"

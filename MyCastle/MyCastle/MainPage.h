@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainPage.h
 //  MyCastle
 //
 //  Created by Brandon Salter on 11/10/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainPage : UIViewController
 
 @end
