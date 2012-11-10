@@ -13,4 +13,4 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#define SQL_URL @"http://pwnindustries.com/mycastledbconnect.php"
+#define SQL_URL @"http://expectationreality.com/mycastledbconnect.php"
