@@ -47,7 +47,6 @@
             [self presentViewController:controller animated:YES completion:nil];
         }
     
-    _engine 
 }
 
 -(IBAction)updateTwitter:(id)sender
