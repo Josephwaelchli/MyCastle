@@ -9,6 +9,8 @@
 #import "MainPage.h"
 #import "AppDelegate.h"
 #import "DatabaseConnector.h"
+#import "FacebookConnector.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface MainPage ()
 
@@ -43,6 +45,12 @@
         //set the phoneNumberTextView to the phone number string. The textview on the nib automatically detects phone numbers, so if you click the number, it will give you the option to call that number.
         [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
     }
+}
+
+-(IBAction)loginFacebookButtonPressed
+{
+    FacebookConnector* fbc = [[FacebookConnector alloc] init];
+    [fbc openSession];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FacebookSDK/FacebookSDK.h>
 @class  ASIHTTPRequest;
 @class  ASIFormDataRequest;
 
