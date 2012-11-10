@@ -36,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if(theAppDel.hasInternetConnection)
+    if([theAppDel hasInternetConnection])
     {
         DatabaseConnector* dbc = [[DatabaseConnector alloc] init];
         NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM users"];
