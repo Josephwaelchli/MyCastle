@@ -17,12 +17,13 @@
     return self;
 }
 
--(BOOL)isLoggedInToFacebook
++ (BOOL)isLoggedInToFacebook
 {
     return FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded;
 }
 
--(void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
+//weird facebook methods taken from their examples lol. 
++ (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
 {
     AppDelegate* theAppDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     switch (state) {
@@ -55,7 +56,8 @@
     }
 }
 
-- (void)openSession
+//also helps log into facebook.
++ (void)openSession
 {
     [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
@@ -66,9 +68,16 @@
      }];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//this pretty much logs into facebook.
++ (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [FBSession.activeSession handleOpenURL:url];
+}
+
+//used for logging out.
++ (void) closeSession
+{
+    [FBSession.activeSession closeAndClearTokenInformation];
 }
 
 @end
