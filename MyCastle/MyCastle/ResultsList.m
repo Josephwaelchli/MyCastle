@@ -35,7 +35,7 @@
     return self;
 }
 
--(id)initWithSearchTerm:(NSString*)sTerm
+-(id)initWithSearchTerm:(NSString*)sTerm andImage:(UIImage* )theImage
 {
     self = [super init];
     if (self) {
@@ -44,6 +44,8 @@
         ExternalConnector* sc = [[ExternalConnector alloc] initWithUrl:YPURL andMethod:@"GET"];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchParsed:) name:@"YPSearchParsed" object:sc];
+        
+        typeImage = theImage;
         
         CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -66,6 +68,7 @@
 {
     [super viewDidLoad];
     theTableView.bounces = NO;
+    typeImageView.image = typeImage;
     // Do any additional setup after loading the view from its nib.
 }
 

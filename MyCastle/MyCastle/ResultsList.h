@@ -15,16 +15,18 @@
     //SocialConnector* externalConnector;
     
     IBOutlet UITableView* theTableView;
+    IBOutlet UIImageView* typeImageView;
     NSString* zipCode;
     bool databaseFinished;
     bool yellowPagesFinished;
+    UIImage* typeImage;
     NSArray* tableViewArray;
     NSDictionary* goldDict;
 }
 
 @property (nonatomic,retain) AppDelegate* theAppDel;
 
--(id)initWithSearchTerm:(NSString*)sTerm;
+-(id)initWithSearchTerm:(NSString*)sTerm andImage:(UIImage* )theImage;
 
 -(IBAction)backButtonPressed:(id)sender;
 
