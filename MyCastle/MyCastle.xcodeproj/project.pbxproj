@@ -40,6 +40,8 @@
 		B7514F5A164F13F6003A9372 /* animation20.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F46164F13F6003A9372 /* animation20.png */; };
 		B7514F6F164F5CE2003A9372 /* standardCastleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F6E164F5CE2003A9372 /* standardCastleCell.m */; };
 		B7514F8E164FFC27003A9372 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7514F8D164FFC27003A9372 /* Social.framework */; };
+		B7514F961650104F003A9372 /* castlelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F951650104F003A9372 /* castlelogo.png */; };
+		B7514F98165010AA003A9372 /* castlelogosmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F97165010AA003A9372 /* castlelogosmall.png */; };
 		B77A15B3164EC18600F0803A /* ExternalConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* ExternalConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
@@ -178,6 +180,8 @@
 		B7514F6E164F5CE2003A9372 /* standardCastleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = standardCastleCell.m; sourceTree = "<group>"; };
 		B7514F70164F5D51003A9372 /* standardCastleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = standardCastleCell.xib; sourceTree = "<group>"; };
 		B7514F8D164FFC27003A9372 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B7514F951650104F003A9372 /* castlelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = castlelogo.png; sourceTree = "<group>"; };
+		B7514F97165010AA003A9372 /* castlelogosmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = castlelogosmall.png; sourceTree = "<group>"; };
 		B77A15B1164EC18600F0803A /* ExternalConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalConnector.h; sourceTree = "<group>"; };
 		B77A15B2164EC18600F0803A /* ExternalConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalConnector.m; sourceTree = "<group>"; };
 		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -435,6 +439,8 @@
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
+				B7514F97165010AA003A9372 /* castlelogosmall.png */,
+				B7514F951650104F003A9372 /* castlelogo.png */,
 				B7514F8D164FFC27003A9372 /* Social.framework */,
 				CA422F03164EFD47006C00EA /* Images */,
 				CA59191C164EDFAA00484D97 /* QuartzCore.framework */,
@@ -782,6 +788,8 @@
 				CA422F3B164F4264006C00EA /* emailicon.png in Resources */,
 				CA422F3D164F42E2006C00EA /* twitter.png in Resources */,
 				CA422F3F164F432D006C00EA /* bbbicon.png in Resources */,
+				B7514F961650104F003A9372 /* castlelogo.png in Resources */,
+				B7514F98165010AA003A9372 /* castlelogosmall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

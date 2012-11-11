@@ -25,10 +25,13 @@
     
     NSMutableDictionary* item;
     
+    BOOL error;
+    
 }@property(nonatomic, strong)NSMutableArray* items;
 
 -(id)initWithUrl:(NSString*)urlString andMethod:(NSString*)methodString;
 -(void)asynchronousUrlCall:(NSDictionary*)callDict;
 -(ASIFormDataRequest*)setGetParameters:(ASIFormDataRequest*)request withParameters:(NSDictionary*)array;
+-(void)handleError:(NSException*)exception;
 
 @end

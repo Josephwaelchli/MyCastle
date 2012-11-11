@@ -48,9 +48,9 @@
         CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:theLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            zipCode = [[placemarks objectAtIndex:0] postalCode];
-            [sc asynchronousUrlCall:[[NSDictionary alloc] initWithObjects:@[@"1", YPKEY, @"50", @"distance", zipCode, sTerm, @"20"] forKeys:@[@"phonesearch", @"key", @"radius", @"sort", @"searchloc", @"term", @"listingcount"]]];
-            [self getGoldCompany];
+                zipCode = [[placemarks objectAtIndex:0] postalCode];
+                [sc asynchronousUrlCall:[[NSDictionary alloc] initWithObjects:@[@"1", YPKEY, @"50", @"distance", zipCode, sTerm, @"20"] forKeys:@[@"phonesearch", @"key", @"radius", @"sort", @"searchloc", @"term", @"listingcount"]]];
+                [self getGoldCompany];
         }];
     
     }
@@ -73,6 +73,8 @@
 {
         DatabaseConnector* dbc = [[DatabaseConnector alloc] init];
         NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM gold_Business"];
+
+    @try {
         NSDictionary* queryDict = [[NSDictionary alloc] initWithObjectsAndKeys:queryString, @"query", nil];
     
     UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
@@ -195,6 +197,13 @@
         
         [self.navigationController pushViewController:[[PdfViewer alloc] initWithPdf:url] animated:YES];
     }*/
+}
+
+-(void) handleError:(NSException *)exception
+{
+    [[[UIAlertView alloc]initWithTitle:@"Warning" message:[NSString stringWithFormat:@"Error: %@", @"Failure connecting to database."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+    [theAppDel appStoppedLoading];
+    [theAppDel.nc popViewControllerAnimated:YES];
 }
 
 #pragma mark notifications
