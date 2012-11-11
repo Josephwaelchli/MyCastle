@@ -36,6 +36,7 @@
      @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
      nil];
     FacebookConnector* fb = [[FacebookConnector alloc] init];
+    fb.vc = self;
     [fb openSession];
     return self;
 }
@@ -69,7 +70,9 @@
 
 -(IBAction)fbShareButtonPressed
 {
-    [[[FacebookConnector alloc] init] publishStory:self.postParams];
+    FacebookConnector* fb = [[FacebookConnector alloc] init];
+    fb.vc = self;
+    [fb publishStory:self.postParams];
 }
 
 #pragma mark view life-cycle
