@@ -48,7 +48,7 @@
             // be looking at the root view.
             ///[theAppDel.nc popToRootViewControllerAnimated:NO];
             NSLog(@"bad");
-            //[FBSession.activeSession closeAndClearTokenInformation];
+            [FBSession.activeSession closeAndClearTokenInformation];
             
             //[self showLoginView];
             break;
