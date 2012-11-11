@@ -79,17 +79,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    if([theAppDel hasInternetConnection])
-    {
-        DatabaseConnector* dbc = [[DatabaseConnector alloc] init];
-        NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM users"];
-        NSDictionary* queryDict = [[NSDictionary alloc] initWithObjectsAndKeys:queryString, @"query", nil];
-        NSString* userName = [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"user_Name"];
-        [theAppDel appStoppedLoading];
-        
-        [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
-    }
 }
 
 - (void)didReceiveMemoryWarning

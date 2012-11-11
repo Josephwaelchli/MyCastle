@@ -10,6 +10,7 @@
 #import "ExternalConnector.h"
 #import <MapKit/MapKit.h>
 #import "DatabaseConnector.h"
+#import "MyCastleCell.h"
 
 
 #define YPURL @"http://api2.yp.com/listings/v1/search"
@@ -63,6 +64,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    theTableView.bounces = NO;
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -72,13 +75,13 @@
         NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM gold_Business"];
         NSDictionary* queryDict = [[NSDictionary alloc] initWithObjectsAndKeys:queryString, @"query", nil];
     
-    NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zip"], nil];
+    UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
     
-    NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zip", nil];
+    NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"], nil];
+    
+    NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link", nil];
     
     goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
-    
-    NSLog(@"name: %@\nimage: %@\nphone: %@\nemail: %@\naddress: %@\nzip: %@",[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zip"]);
     
         databaseFinished = YES;
     
@@ -93,6 +96,40 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [tableViewArray count];
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSIndexPath *)indexPath
+{    
+    if(goldDict != nil)
+    {
+        return 120;//your height
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if(goldDict != nil)
+    {
+        
+    theTableView.scrollIndicatorInsets = UIEdgeInsetsMake(120, 0, 0, 0);        
+    MyCastleCell* cell = [[MyCastleCell alloc] init];
+    
+    cell.phoneNumber = [goldDict objectForKey:@"phone"];
+    cell.email = [goldDict objectForKey:@"email"];
+    cell.addressLabel.text = [goldDict objectForKey:@"address"];
+    cell.nameLabel.text = [goldDict objectForKey:@"name"];
+    cell.theImage.image = [goldDict objectForKey:@"image"];
+    cell.bbbLink = [goldDict objectForKey:@"bbb_Link"];
+        return cell;
+    }
+    else
+    {
+        return nil;
+    }    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

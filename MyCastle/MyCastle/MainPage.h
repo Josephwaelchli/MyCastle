@@ -10,9 +10,7 @@
 @class AppDelegate;
 
 @interface MainPage : UIViewController
-{
-    IBOutlet UILabel* theLabel;
-    
+{    
     NSArray* searchTermArray;
 }
 
