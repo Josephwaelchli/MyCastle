@@ -10,7 +10,7 @@
 @class  ASIHTTPRequest;
 @class  ASIFormDataRequest;
  
-@interface SocialConnector : NSObject <NSXMLParserDelegate>
+@interface ExternalConnector : NSObject <NSXMLParserDelegate>
 {
     NSString* url;
     NSString* method;

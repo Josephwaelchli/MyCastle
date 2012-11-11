@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SocialConnector;
+@class ExternalConnector;
 
 @interface ResultsList : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {

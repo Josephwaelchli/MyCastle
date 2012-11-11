@@ -7,7 +7,7 @@
 //
 
 #import "ResultsList.h"
-#import "SocialConnector.h"
+#import "ExternalConnector.h"
 
 #define YPURL @"http://api2.yp.com/listings/v1/search"
 #define YPKEY @"02a7ad20207f46fa29fcbea568939b9e"
@@ -31,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        SocialConnector* sc = [[SocialConnector alloc] initWithUrl:YPURL andMethod:@"GET"];
+        ExternalConnector* sc = [[ExternalConnector alloc] initWithUrl:YPURL andMethod:@"GET"];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchParsed:) name:@"YPSearchParsed" object:sc];
         
@@ -113,7 +113,7 @@
 
 -(void)searchParsed:(NSNotification *)notice
 {
-    SocialConnector* sc = notice.object;
+    ExternalConnector* sc = notice.object;
     tableViewArray = sc.items;
     NSLog(@"%@", tableViewArray);
 }

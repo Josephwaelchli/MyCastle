@@ -39,7 +39,7 @@
 		B7514F58164F13F6003A9372 /* animation18.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F44164F13F6003A9372 /* animation18.png */; };
 		B7514F59164F13F6003A9372 /* animation19.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F45164F13F6003A9372 /* animation19.png */; };
 		B7514F5A164F13F6003A9372 /* animation20.png in Resources */ = {isa = PBXBuildFile; fileRef = B7514F46164F13F6003A9372 /* animation20.png */; };
-		B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* SocialConnector.m */; };
+		B77A15B3164EC18600F0803A /* ExternalConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* ExternalConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
 		CA422F06164EFD58006C00EA /* electricity.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F05164EFD58006C00EA /* electricity.png */; };
@@ -173,8 +173,8 @@
 		B7514F44164F13F6003A9372 /* animation18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation18.png; sourceTree = "<group>"; };
 		B7514F45164F13F6003A9372 /* animation19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation19.png; sourceTree = "<group>"; };
 		B7514F46164F13F6003A9372 /* animation20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation20.png; sourceTree = "<group>"; };
-		B77A15B1164EC18600F0803A /* SocialConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialConnector.h; sourceTree = "<group>"; };
-		B77A15B2164EC18600F0803A /* SocialConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialConnector.m; sourceTree = "<group>"; };
+		B77A15B1164EC18600F0803A /* ExternalConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalConnector.h; sourceTree = "<group>"; };
+		B77A15B2164EC18600F0803A /* ExternalConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalConnector.m; sourceTree = "<group>"; };
 		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B77A1736164ECE9000F0803A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CA422F05164EFD58006C00EA /* electricity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = electricity.png; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				CA59184A164EB1BC00484D97 /* Reachability */,
-				B77A15B1164EC18600F0803A /* SocialConnector.h */,
-				B77A15B2164EC18600F0803A /* SocialConnector.m */,
+				B77A15B1164EC18600F0803A /* ExternalConnector.h */,
+				B77A15B2164EC18600F0803A /* ExternalConnector.m */,
 				B7514F0B164EDE5C003A9372 /* FacebookConnector.h */,
 				B7514F0C164EDE5C003A9372 /* FacebookConnector.m */,
 				B7514F2D164F130E003A9372 /* MyCastleCell.h */,
@@ -836,7 +836,7 @@
 				CA591877164EB1D000484D97 /* ASINetworkQueue.m in Sources */,
 				CA59186D164EB1D000484D97 /* ASIDataDecompressor.m in Sources */,
 				CA59187E164EB27800484D97 /* MainPage.m in Sources */,
-				B77A15B3164EC18600F0803A /* SocialConnector.m in Sources */,
+				B77A15B3164EC18600F0803A /* ExternalConnector.m in Sources */,
 				B7514F0D164EDE5C003A9372 /* FacebookConnector.m in Sources */,
 				CA591936164EE89100484D97 /* ResultsList.m in Sources */,
 				B7514F2F164F130E003A9372 /* MyCastleCell.m in Sources */,

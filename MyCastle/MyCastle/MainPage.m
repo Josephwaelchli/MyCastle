@@ -13,7 +13,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "TwitterController.h"
 #import "ResultsList.h"
-#import "SocialConnector.h"
+#import "ExternalConnector.h"
 
 @interface MainPage ()
 
