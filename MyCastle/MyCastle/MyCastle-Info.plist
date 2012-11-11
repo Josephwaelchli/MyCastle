@@ -52,8 +52,6 @@
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
-	<key>FBAppSecret</key>
-	<string>ff2c426bacd0cec950acc7596c40cf3f</string>
 	<key>FacebookAppID</key>
 	<string>105667719542677</string>
 </dict>

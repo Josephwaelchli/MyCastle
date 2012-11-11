@@ -42,6 +42,7 @@
 		B7514F65164F3866003A9372 /* FBPosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F64164F3865003A9372 /* FBPosterView.m */; };
 		B7514F68164F3881003A9372 /* FBPosterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514F67164F3881003A9372 /* FBPosterView.xib */; };
 		B7514F6F164F5CE2003A9372 /* standardCastleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F6E164F5CE2003A9372 /* standardCastleCell.m */; };
+		B7514F8E164FFC27003A9372 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7514F8D164FFC27003A9372 /* Social.framework */; };
 		B77A15B3164EC18600F0803A /* ExternalConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* ExternalConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
@@ -184,6 +185,7 @@
 		B7514F6D164F5CE1003A9372 /* standardCastleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = standardCastleCell.h; sourceTree = "<group>"; };
 		B7514F6E164F5CE2003A9372 /* standardCastleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = standardCastleCell.m; sourceTree = "<group>"; };
 		B7514F70164F5D51003A9372 /* standardCastleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = standardCastleCell.xib; sourceTree = "<group>"; };
+		B7514F8D164FFC27003A9372 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B77A15B1164EC18600F0803A /* ExternalConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalConnector.h; sourceTree = "<group>"; };
 		B77A15B2164EC18600F0803A /* ExternalConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalConnector.m; sourceTree = "<group>"; };
 		B77A1734164ECE8700F0803A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -326,6 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7514F8E164FFC27003A9372 /* Social.framework in Frameworks */,
 				CA591911164ED92400484D97 /* Accounts.framework in Frameworks */,
 				CA59190F164ED82700484D97 /* libxml2.dylib in Frameworks */,
 				B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */,
@@ -445,6 +448,7 @@
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
+				B7514F8D164FFC27003A9372 /* Social.framework */,
 				CA422F03164EFD47006C00EA /* Images */,
 				CA59191C164EDFAA00484D97 /* QuartzCore.framework */,
 				CA591910164ED92400484D97 /* Accounts.framework */,
