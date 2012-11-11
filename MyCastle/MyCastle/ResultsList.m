@@ -163,20 +163,6 @@
     NSDictionary* dict = [tableViewArray objectAtIndex:indexPath.row];
     cell.addressLabel.text = [NSString stringWithFormat:@"%@, %@, %@", [dict objectForKey:@"address"], [dict objectForKey:@"zip"], [dict objectForKey:@"state"]];
     cell.nameLabel.text = [dict objectForKey:@"name"];
-    //cell.textLabel.numberOfLines = 0;
-    //cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@",[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"address"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
-    
-    /*[cell.recordingNameLabel setText:[[theXmlData objectAtIndex:indexPath.row] objectForKey:@"date"]];
-    [cell.colorLabel setText:[[theXmlData objectAtIndex:indexPath.row] objectForKey:@"color"]];
-    
-    if([cell.colorLabel.text isEqualToString:@"green"])
-    {
-        cell.colorLabel.textColor = [UIColor greenColor];
-    }
-    else
-    {
-        cell.colorLabel.textColor = [UIColor redColor];
-    }*/
     return cell;
 }
 
