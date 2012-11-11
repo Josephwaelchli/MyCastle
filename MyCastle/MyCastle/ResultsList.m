@@ -9,6 +9,7 @@
 #import "ResultsList.h"
 #import "ExternalConnector.h"
 #import <MapKit/MapKit.h>
+#import "standardCastleCell.h"
 #import "DatabaseConnector.h"
 #import "MyCastleCell.h"
 
@@ -134,30 +135,35 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* CellIdentifier = @"UITableViewCell";
+    static NSString* CellIdentifier = @"standardCell";
     //RecordingsCell* cell = (RecordingsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    standardCastleCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-       /* NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RecordingsCell" owner:nil options:nil];
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"standardCell"];
+        //cell = [[standardCastleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"standardCell"];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"standardCastleCell" owner:nil options:nil];
         
         for(id currentObject in topLevelObjects)
         {
-            if([currentObject isKindOfClass:[UITableViewCell class]])
+            if([currentObject isKindOfClass:[standardCastleCell class]])
             {
-                //cell = (RecordingsCell*)currentObject;
+                cell = (standardCastleCell *)currentObject;
                 break;
             }
-        }*/
+        }
     }
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@",[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"address"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
+    
+    NSDictionary* dict = [tableViewArray objectAtIndex:indexPath.row];
+    cell.addressLabel.text = [NSString stringWithFormat:@"%@, %@", [dict objectForKey:@"address"], [dict objectForKey:@"zip"]];
+    cell.nameLabel.text = [dict objectForKey:@"name"];
+    //cell.textLabel.numberOfLines = 0;
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@",[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"address"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
     
     /*[cell.recordingNameLabel setText:[[theXmlData objectAtIndex:indexPath.row] objectForKey:@"date"]];
     [cell.colorLabel setText:[[theXmlData objectAtIndex:indexPath.row] objectForKey:@"color"]];

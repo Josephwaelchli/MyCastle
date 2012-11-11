@@ -24,6 +24,27 @@
     return self;
 }
 
+-(id)init
+{
+    self = [super init];
+    /*@"https://developers.facebook.com/ios", @"link",
+     @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",*/
+    self.postParams =
+    [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+     @"Facebook SDK for iOS", @"name",
+     @"Build great social apps and get more installs.", @"caption",
+     @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+     nil];
+    FacebookConnector* fb = [[FacebookConnector alloc] init];
+    [fb openSession];
+    return self;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
 #pragma mark textview delegation
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -42,6 +63,13 @@
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Share to facebook...";
     }
+}
+
+#pragma mark IBActions
+
+-(IBAction)fbShareButtonPressed
+{
+    [[[FacebookConnector alloc] init] publishStory:self.postParams];
 }
 
 #pragma mark view life-cycle

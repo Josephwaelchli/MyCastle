@@ -17,7 +17,7 @@
     return self;
 }
 
-+ (BOOL)isLoggedInToFacebook
+-(BOOL)isLoggedInToFacebook
 {
     NSLog(@"%u, %u", FBSession.activeSession.state, FBSessionStateCreatedTokenLoaded);
     //return FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded;
@@ -32,7 +32,7 @@
 }
 
 //weird facebook methods taken from their examples lol. 
-+ (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
+-(void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
 {
     AppDelegate* theAppDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     switch (state) {
@@ -66,27 +66,61 @@
 }
 
 //also helps log into facebook.
-+ (void)openSession
+-(void)openSession
 {
-    [FBSession openActiveSessionWithReadPermissions:nil
+    [FBSession openActiveSessionWithPublishPermissions:[[NSArray alloc] initWithObjects:@"publish_actions", nil] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session,
+                                                                                                                                                                                    FBSessionState state, NSError *error) {
+        [self sessionStateChanged:session state:state error:error];
+    }];
+    /*[FBSession openActiveSessionWithReadPermissions:[[NSArray alloc] initWithObjects:@"publish_actions", nil]
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session,
        FBSessionState state, NSError *error) {
          [self sessionStateChanged:session state:state error:error];
-     }];
+     }];*/
 }
 
 //this pretty much logs into facebook.
-+ (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [FBSession.activeSession handleOpenURL:url];
 }
 
 //used for logging out.
-+ (void) closeSession
+-(void) closeSession
 {
     [FBSession.activeSession closeAndClearTokenInformation];
+}
+
+-(void)publishStory:(NSDictionary*)post
+{
+    [FBSettings setLoggingBehavior:[NSSet setWithObjects:FBLoggingBehaviorFBRequests, FBLoggingBehaviorFBURLConnections, nil]];
+    [FBRequestConnection
+     startWithGraphPath:@"me/feed"
+     parameters:post
+     HTTPMethod:@"POST"
+     completionHandler:^(FBRequestConnection *connection,
+                         id result,
+                         NSError *error) {
+         NSString *alertText;
+         if (error) {
+             alertText = [NSString stringWithFormat:
+                          @"error: domain = %@, code = %d",
+                          error.domain, error.code];
+         } else {
+             alertText = [NSString stringWithFormat:
+                          @"Posted action, id: %@",
+                          [result objectForKey:@"id"]];
+         }
+         // Show the result in an alert
+         [[[UIAlertView alloc] initWithTitle:@"Result"
+                                     message:alertText
+                                    delegate:self
+                           cancelButtonTitle:@"OK!"
+                           otherButtonTitles:nil]
+          show];
+     }];
 }
 
 @end

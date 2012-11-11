@@ -112,10 +112,10 @@
 -(IBAction)fbButtonPressed
 {
     //post to facebook.
-    if([FacebookConnector isLoggedInToFacebook])
+    /*if([FacebookConnector isLoggedInToFacebook])
     {
         
-    }
+    }*/
 }
 
 -(IBAction)twitterButtonPressed

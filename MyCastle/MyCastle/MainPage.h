@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class AppDelegate;
+#import "FBPosterView.h"
 
 @interface MainPage : UIViewController
 {    
     NSArray* searchTermArray;
+    
+    FBPosterView* fb;
 }
 
 @property (nonatomic,retain) AppDelegate* theAppDel;
