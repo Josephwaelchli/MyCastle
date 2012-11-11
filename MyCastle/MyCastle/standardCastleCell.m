@@ -26,4 +26,10 @@
     // Configure the view for the selected state
 }
 
+-(IBAction)phoneButtonPressed
+{
+    NSString* string = [@"tel://" stringByAppendingString:self.phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
 @end
