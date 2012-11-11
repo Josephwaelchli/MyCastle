@@ -12,15 +12,19 @@
 
 @interface MainPage : UIViewController
 {
-   IBOutlet UILabel* theLabel;
+    IBOutlet UILabel* theLabel;
+    
+    NSArray* searchTermArray;
 }
 
 @property (nonatomic,retain) AppDelegate* theAppDel;
 
--(IBAction)loginFacebookButtonPressed;
+/*-(IBAction)loginFacebookButtonPressed;
 -(IBAction)twitterButtonPressed:(id)sender;
 -(IBAction)resultsButtonPressed:(id)sender;
--(IBAction)facebookLogoutButtonPressed;
+-(IBAction)facebookLogoutButtonPressed;*/
 -(IBAction)testButtonPressed;
+
+-(IBAction)mainButtonPressed:(id)sender;
 
 @end

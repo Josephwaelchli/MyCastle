@@ -15,9 +15,6 @@
 #import "ResultsList.h"
 #import "SocialConnector.h"
 
-#define YPURL @"http://api2.yp.com/listings/v1/search"
-#define YPKEY @"02a7ad20207f46fa29fcbea568939b9e"
-
 @interface MainPage ()
 
 @end
@@ -31,6 +28,7 @@
     if (self) {
         // Custom initialization
         theAppDel = [[UIApplication sharedApplication] delegate];
+        searchTermArray = @[@"Electric", @"Heating/Cooling", @"Roofing", @"Insulation", @"Garages", @"Doors/Windows", @"Appliances", @"Plumbing", @"Handyman"];
     }
     return self;
 }
@@ -74,8 +72,13 @@
 
 -(IBAction)testButtonPressed
 {
-    SocialConnector* sc = [[SocialConnector alloc] initWithUrl:YPURL andMethod:@"GET"];
-    [sc asynchronousUrlCall:[[NSDictionary alloc] initWithObjects:@[@"1", YPKEY, @"5", @"distance", @"53097", @"pizza"] forKeys:@[@"phonesearch", @"key", @"radius", @"sort", @"searchloc", @"term"]]];
+   
+}
+
+-(IBAction)mainButtonPressed:(id)sender
+{
+    UIButton* button = (UIButton*)sender;
+    [self.navigationController pushViewController:[[ResultsList alloc] initWithSearchTerm:[searchTermArray objectAtIndex:button.tag]] animated:YES];
 }
 
 #pragma mark view life-cycle

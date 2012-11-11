@@ -11,8 +11,17 @@
 
 @interface ResultsList : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    SocialConnector* externalConnector;
+    //SocialConnector* externalConnector;
+    
+    IBOutlet UITableView* theTableView;
+    
+    NSArray* tableViewArray;
 }
 
+-(id)initWithSearchTerm:(NSString*)sTerm;
+
 -(IBAction)backButtonPressed:(id)sender;
+
+-(void)searchParsed:(NSNotification*)notice;
+
 @end
