@@ -8,6 +8,10 @@
 
 #import "MyCastleCell.h"
 #import "FacebookConnector.h"
+#import "SA_OAuthTwitterEngine.h"
+
+#define kOAuthConsumerKey        @"E38T2ButLdxRunj7RftYXw"
+#define kOAuthConsumerSecret    @"fu6bZzefjaWJnZrXI5suBWyXqlOAwqfVH3dnuDn28"
 
 @implementation MyCastleCell
 @synthesize bbbLink, email;
@@ -16,7 +20,7 @@
 {
     self = [[[NSBundle mainBundle] loadNibNamed:@"MyCastleCell" owner:self options:nil] objectAtIndex:0];
     if (self) {
-        // Initialization code        
+        // Initialization code
     }
     return self;
 }
@@ -111,17 +115,60 @@
 
 -(IBAction)fbButtonPressed
 {
-    //post to facebook.
-    /*if([FacebookConnector isLoggedInToFacebook])
-    {
-        
-    }*/
+    parentController = [self firstAvailableUIViewController];
 }
 
 -(IBAction)twitterButtonPressed
 {
-    //tweet
+    parentController = [self firstAvailableUIViewController];
+
+    /*if(![_engine isAuthorized])
+    {
+    if(!_engine){
+        _engine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self];
+        _engine.consumerKey    = kOAuthConsumerKey;
+        _engine.consumerSecret = kOAuthConsumerSecret;
+    }
+    UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:_engine delegate:self];
+    if (controller){
+        //[self presentModalViewController: controller animated: YES];
+        [parentController presentViewController:controller animated:YES completion:nil];
+    }
+    }
+    else
+    {
+        _engine 
+        [_engine sendUpdate:[NSString stringWithFormat:@"I found %@ on @MyCastleMKE, and they rock!", self.nameLabel.text]];
+    }*/
+    SLComposeViewController *twitterController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            
+            [twitterController dismissViewControllerAnimated:YES completion:nil];
+            
+            switch(result){
+                case SLComposeViewControllerResultCancelled:
+                default:
+                {
+                    NSLog(@"Cancelled.....");
+                    
+                }
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Posted....");
+                }
+                    break;
+            }};
+        
+        //[twitterController addImage:[UIImage imageNamed:@"1.jpg"]];
+        [twitterController setInitialText:[NSString stringWithFormat:@"I found %@ (%@) on @MyCastleMKE, and they rock!", self.nameLabel.text,self.twitter]];
+        //[twitterController addURL:[NSURL URLWithString:@"http://soulwithmobiletechnology.blogspot.com/"]];
+        [twitterController setCompletionHandler:completionHandler];
+        [parentController presentViewController:twitterController animated:YES completion:nil];
+    }
 }
 
 @end

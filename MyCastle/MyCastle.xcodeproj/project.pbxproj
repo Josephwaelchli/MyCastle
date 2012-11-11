@@ -59,6 +59,7 @@
 		CA422F3D164F42E2006C00EA /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F3C164F42E2006C00EA /* twitter.png */; };
 		CA422F3F164F432D006C00EA /* bbbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F3E164F432D006C00EA /* bbbicon.png */; };
 		CA422F44164F6614006C00EA /* standardCastleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514F70164F5D51003A9372 /* standardCastleCell.xib */; };
+		CA422F47164FFA87006C00EA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA422F46164FFA87006C00EA /* Social.framework */; };
 		CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180C164EAD8700484D97 /* UIKit.framework */; };
 		CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180E164EAD8700484D97 /* Foundation.framework */; };
 		CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA591810164EAD8700484D97 /* CoreGraphics.framework */; };
@@ -202,6 +203,7 @@
 		CA422F3A164F4264006C00EA /* emailicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailicon.png; sourceTree = "<group>"; };
 		CA422F3C164F42E2006C00EA /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		CA422F3E164F432D006C00EA /* bbbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bbbicon.png; sourceTree = "<group>"; };
+		CA422F46164FFA87006C00EA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CA591808164EAD8700484D97 /* MyCastle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCastle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA59180C164EAD8700484D97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA59180E164EAD8700484D97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };

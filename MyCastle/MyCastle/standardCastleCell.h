@@ -7,15 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Social/Social.h"
 
 @interface standardCastleCell : UITableViewCell
 {
-    
+    UIViewController* parentController;
 }
 @property(nonatomic, strong)NSString* phoneNumber;
 @property(nonatomic, strong)IBOutlet UILabel* addressLabel;
 @property(nonatomic, strong)IBOutlet UILabel* nameLabel;
 
 -(IBAction)phoneButtonPressed;
+-(IBAction)bbbButtonPressed;
+-(IBAction)fbButtonPressed;
+-(IBAction)twitterButtonPressed;
+
+- (id) traverseResponderChainForUIViewController:(id)responder;
+- (UIViewController *) firstAvailableUIViewController;
 
 @end
