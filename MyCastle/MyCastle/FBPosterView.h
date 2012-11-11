@@ -11,6 +11,8 @@
 @interface FBPosterView : UIViewController <UITextViewDelegate>
 {
     IBOutlet UITextView* fbPostTextView;
-}
+}@property (strong, nonatomic) NSMutableDictionary *postParams;
+
+-(IBAction)fbShareButtonPressed;
 
 @end

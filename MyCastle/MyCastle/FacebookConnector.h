@@ -12,13 +12,13 @@
 
 @interface FacebookConnector : NSObject <FBLoginViewDelegate>
 {
-
+    
 }
 
-+ (BOOL)isLoggedInToFacebook;
-+(void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error;
-+(void)openSession;
-+(void)closeSession;
-+(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
-
+-(BOOL)isLoggedInToFacebook;
+-(void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error;
+-(void)openSession;
+-(void)closeSession;
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+-(void)publishStory:(NSDictionary*)post;
 @end

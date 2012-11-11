@@ -14,6 +14,7 @@
 #import "TwitterController.h"
 #import "ResultsList.h"
 #import "ExternalConnector.h"
+#import "FBPosterView.h"
 
 @interface MainPage ()
 
@@ -37,10 +38,10 @@
 
 -(IBAction)loginFacebookButtonPressed
 {
-    if(![FacebookConnector isLoggedInToFacebook])
+    /*if(![FacebookConnector isLoggedInToFacebook])
     {
         [FacebookConnector openSession];
-    }
+    }*/
 }
 
 -(IBAction)twitterButtonPressed:(id)sender
@@ -55,7 +56,7 @@
 
 -(IBAction)facebookLogoutButtonPressed
 {
-    [FacebookConnector closeSession];
+    //[FacebookConnector closeSession];
     
 }
 
@@ -89,7 +90,10 @@
         [theAppDel appStoppedLoading];
         
         [theLabel setText:[NSString stringWithFormat:@"%@",userName]];
+        
     }
+    //fb = [[FBPosterView alloc] init];
+    //[self.view addSubview:fb.view];
 }
 
 - (void)didReceiveMemoryWarning
