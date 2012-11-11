@@ -330,7 +330,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA422F47164FFA87006C00EA /* Social.framework in Frameworks */,
+				B7514F8E164FFC27003A9372 /* Social.framework in Frameworks */,
 				CA591911164ED92400484D97 /* Accounts.framework in Frameworks */,
 				CA59190F164ED82700484D97 /* libxml2.dylib in Frameworks */,
 				B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */,
@@ -450,7 +450,7 @@
 		CA5917FD164EAD8700484D97 = {
 			isa = PBXGroup;
 			children = (
-				CA422F46164FFA87006C00EA /* Social.framework */,
+				B7514F8D164FFC27003A9372 /* Social.framework */,
 				CA422F03164EFD47006C00EA /* Images */,
 				CA59191C164EDFAA00484D97 /* QuartzCore.framework */,
 				CA591910164ED92400484D97 /* Accounts.framework */,
