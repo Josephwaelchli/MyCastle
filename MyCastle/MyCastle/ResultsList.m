@@ -84,6 +84,7 @@
         NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter", nil];
         
         goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
+    //pushing lol.
     }
     @catch (NSException* exception) {
         [self handleError:exception];
