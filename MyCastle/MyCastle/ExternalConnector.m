@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Pwn Industries. All rights reserved.
 //
 
-#import "SocialConnector.h"
+#import "ExternalConnector.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
-@implementation SocialConnector
+@implementation ExternalConnector
 
 -(id)initWithUrl:(NSString*)urlString andMethod:(NSString*)methodString
 {
