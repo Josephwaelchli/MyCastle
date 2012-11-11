@@ -115,7 +115,6 @@
 -(IBAction)fbButtonPressed
 {
     parentController = [self firstAvailableUIViewController];
-    parentController = [self firstAvailableUIViewController];
     
     SLComposeViewController* facebookController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
@@ -146,6 +145,12 @@
         [facebookController setCompletionHandler:completionHandler];
         [parentController presentViewController:facebookController animated:YES completion:nil];
     }
+    else
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"No Facebook Account" message:@"You must be logged into Facebook to do that! Please go to your device settings and sign into Facebook." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 -(IBAction)twitterButtonPressed
@@ -194,11 +199,17 @@
             }};
         
         //[twitterController addImage:[UIImage imageNamed:@"1.jpg"]];
-        [twitterController setInitialText:[NSString stringWithFormat:@"I found %@ (%@) on @MyCastleMKE, and they rock!", self.nameLabel.text,self.twitter]];
+        [twitterController setInitialText:[NSString stringWithFormat:@"I found %@ (%@) on @MyCastleMKE, and they rock! %@", self.nameLabel.text,self.twitter, self.hashtag]];
         //[twitterController addURL:[NSURL URLWithString:@"http://soulwithmobiletechnology.blogspot.com/"]];
         [twitterController setCompletionHandler:completionHandler];
         [parentController presentViewController:twitterController animated:YES completion:nil];
     }
+    else
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"No Twitter Account" message:@"You must be logged into Twitter to do that! Please go to your device settings and sign into Twitter." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
+
 
 @end

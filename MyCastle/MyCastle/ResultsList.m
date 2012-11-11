@@ -79,9 +79,9 @@
         
         UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
         
-        NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"twitter"], nil];
+        NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"twitter"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"hashtag"], nil];
         
-        NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter", nil];
+        NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter",@"hashtag", nil];
         
         goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
     //pushing lol.
@@ -131,6 +131,7 @@
     cell.theImage.image = [goldDict objectForKey:@"image"];
     cell.bbbLink = [goldDict objectForKey:@"bbb_Link"];
     cell.twitter = [goldDict objectForKey:@"twitter"];
+    cell.hashtag = [goldDict objectForKey:@"hashtag"];
         return cell;
     }
     else
