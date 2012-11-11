@@ -28,7 +28,8 @@
 
 -(IBAction)phoneButtonPressed
 {
-    NSString* string = [@"tel://" stringByAppendingString:self.phoneNumber];
+    NSString* newPhone = [self.phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString* string = [@"tel://" stringByAppendingString:newPhone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
 }
 

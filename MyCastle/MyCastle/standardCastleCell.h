@@ -11,7 +11,8 @@
 @interface standardCastleCell : UITableViewCell
 {
     
-}@property(nonatomic, strong)NSString* phoneNumber;
+}
+@property(nonatomic, strong)NSString* phoneNumber;
 @property(nonatomic, strong)IBOutlet UILabel* addressLabel;
 @property(nonatomic, strong)IBOutlet UILabel* nameLabel;
 

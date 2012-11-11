@@ -163,6 +163,7 @@
     NSDictionary* dict = [tableViewArray objectAtIndex:indexPath.row];
     cell.addressLabel.text = [NSString stringWithFormat:@"%@, %@", [dict objectForKey:@"address"], [dict objectForKey:@"zip"]];
     cell.nameLabel.text = [dict objectForKey:@"name"];
+    cell.phoneNumber = [dict objectForKey:@"phone"];
     //cell.textLabel.numberOfLines = 0;
     //cell.textLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@",[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"address"],[[tableViewArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
     
