@@ -9,12 +9,10 @@
 #import "MainPage.h"
 #import "AppDelegate.h"
 #import "DatabaseConnector.h"
-#import "FacebookConnector.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "TwitterController.h"
 #import "ResultsList.h"
 #import "ExternalConnector.h"
-#import "FBPosterView.h"
 
 @interface MainPage ()
 

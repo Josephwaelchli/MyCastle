@@ -59,7 +59,35 @@
 {
     parentController = [self firstAvailableUIViewController];
     
-
+    SLComposeViewController* facebookController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            
+            [facebookController dismissViewControllerAnimated:YES completion:nil];
+            
+            switch(result){
+                case SLComposeViewControllerResultCancelled:
+                default:
+                {
+                    NSLog(@"Cancelled.....");
+                    
+                }
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Posted....");
+                }
+                    break;
+            }};
+        
+        //[twitterController addImage:[UIImage imageNamed:@"1.jpg"]];
+        [facebookController setInitialText:[NSString stringWithFormat:@"I found %@ on @MyCastleMKE, and they rock!", self.nameLabel.text]];
+        //[twitterController addURL:[NSURL URLWithString:@"http://soulwithmobiletechnology.blogspot.com/"]];
+        [facebookController setCompletionHandler:completionHandler];
+        [parentController presentViewController:facebookController animated:YES completion:nil];
+    }
 }
 
 -(IBAction)twitterButtonPressed
