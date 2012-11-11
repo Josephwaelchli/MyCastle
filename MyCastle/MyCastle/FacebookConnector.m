@@ -20,7 +20,15 @@
 + (BOOL)isLoggedInToFacebook
 {
     NSLog(@"%u, %u", FBSession.activeSession.state, FBSessionStateCreatedTokenLoaded);
-    return FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded;
+    //return FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded;
+    if(FBSession.activeSession.isOpen)
+    {
+        NSLog(@"test");
+    }
+    else{
+        NSLog(@"bad");
+    }
+    return FBSession.activeSession.isOpen;
 }
 
 //weird facebook methods taken from their examples lol. 
