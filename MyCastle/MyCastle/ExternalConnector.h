@@ -20,7 +20,7 @@
     NSMutableString* currentStreet;
     NSMutableString* currentBusiness;
     NSMutableString* currentZip;
-    NSMutableString* currentRating;
+    NSMutableString* currentState;
     NSMutableString* currentRatingCount;
     
     NSMutableDictionary* item;

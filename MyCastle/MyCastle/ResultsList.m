@@ -161,7 +161,7 @@
     }
     
     NSDictionary* dict = [tableViewArray objectAtIndex:indexPath.row];
-    cell.addressLabel.text = [NSString stringWithFormat:@"%@, %@", [dict objectForKey:@"address"], [dict objectForKey:@"zip"]];
+    cell.addressLabel.text = [NSString stringWithFormat:@"%@, %@, %@", [dict objectForKey:@"address"], [dict objectForKey:@"zip"], [dict objectForKey:@"state"]];
     cell.nameLabel.text = [dict objectForKey:@"name"];
     cell.phoneNumber = [dict objectForKey:@"phone"];
     //cell.textLabel.numberOfLines = 0;

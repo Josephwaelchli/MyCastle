@@ -78,7 +78,7 @@
             currentStreet = [[NSMutableString alloc] init];
             currentBusiness = [[NSMutableString alloc] init];
             currentRatingCount = [[NSMutableString alloc] init];
-            currentRating = [[NSMutableString alloc] init];
+            currentState = [[NSMutableString alloc] init];
             currentZip = [[NSMutableString alloc] init];
         }
     }
@@ -102,7 +102,7 @@
             [item setObject:currentBusiness forKey:@"name"];
             [item setObject:currentStreet forKey:@"address"];
             [item setObject:currentZip forKey:@"zip"];
-            [item setObject:currentRating forKey:@"rating"];
+            [item setObject:currentState forKey:@"state"];
             [item setObject:currentRatingCount forKey:@"numberOfRates"];
             
             [self.items addObject:[item copy]];
@@ -138,9 +138,9 @@
         {
             [currentZip appendString:string];
         }
-        else if([currentElement isEqualToString:@"averageRating"])
+        else if([currentElement isEqualToString:@"state"])
         {
-            [currentRating appendString:string];
+            [currentState appendString:string];
         }
         else if([currentElement isEqualToString:@"ratingCount"])
         {
