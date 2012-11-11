@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import "SA_OAuthTwitterController.h"
+#import "Social/Social.h"
 
-@interface MyCastleCell : UIView <MFMailComposeViewControllerDelegate>
+@interface MyCastleCell : UIView <MFMailComposeViewControllerDelegate, SA_OAuthTwitterControllerDelegate>
 {
     UIViewController* parentController;
+    SA_OAuthTwitterEngine    *_engine;
 }
 
 @property(strong, nonatomic)NSString* phoneNumber;
+@property(strong, nonatomic)NSString* twitter;
 @property(strong, nonatomic)NSString* bbbLink;
 @property(strong, nonatomic)NSString* email;
 @property(strong, nonatomic)IBOutlet UILabel* addressLabel;

@@ -77,13 +77,11 @@
     
     UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
     
-    NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"], nil];
+    NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"twitter"], nil];
     
-    NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link", nil];
+    NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter", nil];
     
     goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
-    
-    NSLog(@"name: %@\nimage: %@\nphone: %@\nemail: %@\naddress: %@\nzip: %@",[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"]);
     
         databaseFinished = YES;
     
@@ -126,6 +124,7 @@
     cell.nameLabel.text = [goldDict objectForKey:@"name"];
     cell.theImage.image = [goldDict objectForKey:@"image"];
     cell.bbbLink = [goldDict objectForKey:@"bbb_Link"];
+    cell.twitter = [goldDict objectForKey:@"twitter"];
         return cell;
     }
     else

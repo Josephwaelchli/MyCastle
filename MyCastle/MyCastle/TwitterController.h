@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SA_OAuthTwitterController.h"
 @class SA_OAuthTwitterEngine;
+
 @interface TwitterController : UIViewController <UITextFieldDelegate, SA_OAuthTwitterControllerDelegate>
 {
     SA_OAuthTwitterEngine    *_engine;
