@@ -42,7 +42,6 @@
 		B7514F65164F3866003A9372 /* FBPosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F64164F3865003A9372 /* FBPosterView.m */; };
 		B7514F68164F3881003A9372 /* FBPosterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514F67164F3881003A9372 /* FBPosterView.xib */; };
 		B7514F6F164F5CE2003A9372 /* standardCastleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7514F6E164F5CE2003A9372 /* standardCastleCell.m */; };
-		B7514F71164F5D51003A9372 /* standardCastleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514F70164F5D51003A9372 /* standardCastleCell.xib */; };
 		B77A15B3164EC18600F0803A /* ExternalConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = B77A15B2164EC18600F0803A /* ExternalConnector.m */; };
 		B77A1735164ECE8700F0803A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1734164ECE8700F0803A /* Accelerate.framework */; };
 		B77A1737164ECE9000F0803A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A1736164ECE9000F0803A /* AdSupport.framework */; };
@@ -58,6 +57,7 @@
 		CA422F3B164F4264006C00EA /* emailicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F3A164F4264006C00EA /* emailicon.png */; };
 		CA422F3D164F42E2006C00EA /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F3C164F42E2006C00EA /* twitter.png */; };
 		CA422F3F164F432D006C00EA /* bbbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA422F3E164F432D006C00EA /* bbbicon.png */; };
+		CA422F44164F6614006C00EA /* standardCastleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7514F70164F5D51003A9372 /* standardCastleCell.xib */; };
 		CA59180D164EAD8700484D97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180C164EAD8700484D97 /* UIKit.framework */; };
 		CA59180F164EAD8700484D97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA59180E164EAD8700484D97 /* Foundation.framework */; };
 		CA591811164EAD8700484D97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA591810164EAD8700484D97 /* CoreGraphics.framework */; };
@@ -750,6 +750,7 @@
 				CA591916164EDA3300484D97 /* TwitterController.xib in Resources */,
 				CA591937164EE89100484D97 /* ResultsList.xib in Resources */,
 				CA422F06164EFD58006C00EA /* electricity.png in Resources */,
+				CA422F44164F6614006C00EA /* standardCastleCell.xib in Resources */,
 				B7514F1E164F0678003A9372 /* garage.png in Resources */,
 				B7514F21164F0681003A9372 /* appliances.png in Resources */,
 				B7514F22164F0681003A9372 /* doorswindows.png in Resources */,
