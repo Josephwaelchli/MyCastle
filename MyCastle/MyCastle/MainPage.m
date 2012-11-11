@@ -47,11 +47,18 @@
 
 -(IBAction)twitterButtonPressed:(id)sender
 {
-    [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
+    //[self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
     
-    CLLocationCoordinate2D coord;
-	coord.longitude = theAppDel.theMap.userLocation.coordinate.longitude;
-	coord.latitude = theAppDel.theMap.userLocation.coordinate.latitude;
+    //CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:theAppDel.theMap.userLocation.coordinate.latitude longitude:theAppDel.theMap.userLocation.coordinate.latitude];
+    CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:theLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        NSLog(@"Reverse geocoding finished");
+        
+        NSLog(@"%@",[[placemarks objectAtIndex:0] postalCode]);
+        
+    }];
 }
 
 -(IBAction)resultsButtonPressed:(id)sender
