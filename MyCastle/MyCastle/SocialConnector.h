@@ -19,6 +19,9 @@
     NSMutableString* currentPhone;
     NSMutableString* currentStreet;
     NSMutableString* currentBusiness;
+    NSMutableString* currentZip;
+    NSMutableString* currentRating;
+    NSMutableString* currentRatingCount;
     
     NSMutableDictionary* item;
     
