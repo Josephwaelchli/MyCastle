@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 @class AppDelegate;
 
 @interface MainPage : UIViewController

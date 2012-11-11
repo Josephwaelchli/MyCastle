@@ -61,6 +61,7 @@
 
 -(void)appStoppedLoading
 {
+    NSLog(@"here bitches");
     [loaderView removeFromSuperview];
     [loadingImageView stopAnimating];
 }
@@ -70,24 +71,26 @@
     loaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, 460)];
     loadingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 227, 227)];
     NSArray* loadingArray=[[NSArray alloc] initWithObjects:
-                           [UIImage imageNamed:@"loader_1.png"],
-                           [UIImage imageNamed:@"loader_2.png"],
-                           [UIImage imageNamed:@"loader_3.png"],
-                           [UIImage imageNamed:@"loader_4.png"],
-                           [UIImage imageNamed:@"loader_5.png"],
-                           [UIImage imageNamed:@"loader_6.png"],
-                           [UIImage imageNamed:@"loader_7.png"],
-                           [UIImage imageNamed:@"loader_8.png"],
-                           [UIImage imageNamed:@"loader_9.png"],
-                           [UIImage imageNamed:@"loader_10.png"],
-                           [UIImage imageNamed:@"loader_11.png"],
-                           [UIImage imageNamed:@"loader_12.png"],
-                           [UIImage imageNamed:@"loader_13.png"],
-                           [UIImage imageNamed:@"loader_14.png"],
-                           [UIImage imageNamed:@"loader_15.png"],
-                           [UIImage imageNamed:@"loader_16.png"],
-                           [UIImage imageNamed:@"loader_17.png"],
-                           [UIImage imageNamed:@"loader_18.png"],
+                           [UIImage imageNamed:@"animation1.png"],
+                           [UIImage imageNamed:@"animation2.png"],
+                           [UIImage imageNamed:@"animation3.png"],
+                           [UIImage imageNamed:@"animation4.png"],
+                           [UIImage imageNamed:@"animation5.png"],
+                           [UIImage imageNamed:@"animation6.png"],
+                           [UIImage imageNamed:@"animation7.png"],
+                           [UIImage imageNamed:@"animation8.png"],
+                           [UIImage imageNamed:@"animation9.png"],
+                           [UIImage imageNamed:@"animation10.png"],
+                           [UIImage imageNamed:@"animation11.png"],
+                           [UIImage imageNamed:@"animation12.png"],
+                           [UIImage imageNamed:@"animation13.png"],
+                           [UIImage imageNamed:@"animation14.png"],
+                           [UIImage imageNamed:@"animation15.png"],
+                           [UIImage imageNamed:@"animation16.png"],
+                           [UIImage imageNamed:@"animation17.png"],
+                           [UIImage imageNamed:@"animation18.png"],
+                           [UIImage imageNamed:@"animation19.png"],
+                           [UIImage imageNamed:@"animation20.png"],
                            nil];
     loadingImageView.animationImages=loadingArray;
     loadingImageView.animationDuration=1.0;

@@ -45,18 +45,7 @@
 
 -(IBAction)twitterButtonPressed:(id)sender
 {
-    //[self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
-    
-    //CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:theAppDel.theMap.userLocation.coordinate.latitude longitude:theAppDel.theMap.userLocation.coordinate.latitude];
-    CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:theLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        NSLog(@"Reverse geocoding finished");
-        
-        NSLog(@"%@",[[placemarks objectAtIndex:0] postalCode]);
-        
-    }];
+    [self.navigationController pushViewController:[[TwitterController alloc] init] animated:YES];
 }
 
 -(IBAction)resultsButtonPressed:(id)sender
@@ -78,7 +67,10 @@
 -(IBAction)mainButtonPressed:(id)sender
 {
     UIButton* button = (UIButton*)sender;
+    if([theAppDel hasInternetConnection])
+    {
     [self.navigationController pushViewController:[[ResultsList alloc] initWithSearchTerm:[searchTermArray objectAtIndex:button.tag]] animated:YES];
+    }
 }
 
 #pragma mark view life-cycle
