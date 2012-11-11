@@ -34,6 +34,48 @@
 
 -(IBAction)emailButtonPressed
 {
+    //searchTermArray = @[@"Electric", @"Heating/Cooling", @"Roofing", @"Insulation", @"Garages", @"Doors/Windows", @"Appliances", @"Plumbing", @"Handyman"];
+    
+    NSString* newString = @"";
+    
+    if([self.whichSearch isEqualToString:@"Electric"])
+    {
+        newString = @"an electrical";
+    }
+    else if([self.whichSearch isEqualToString:@"Heating/Cooling"])
+    {
+        newString = @"a heating/cooling";
+    }
+    else if([self.whichSearch isEqualToString:@"Roofing"])
+    {
+        newString = @"a roofing";
+    }
+    else if([self.whichSearch isEqualToString:@"Insulation"])
+    {
+        newString = @"an insulation";
+    }
+    else if([self.whichSearch isEqualToString:@"Garages"])
+    {
+        newString = @"a garage";
+    }
+    else if([self.whichSearch isEqualToString:@"Doors/Windows"])
+    {
+        newString = @"a doors/windows";
+    }
+    else if([self.whichSearch isEqualToString:@"Appliances"])
+    {
+        newString = @"an appliances";
+    }
+    else if([self.whichSearch isEqualToString:@"Plumbing"])
+    {
+        newString = @"a plumbing";
+    }
+    else if([self.whichSearch isEqualToString:@"Handyman"])
+    {
+        newString = @"a handyman";
+    }
+    
+    
     parentController = [self firstAvailableUIViewController];
 
     if ([MFMailComposeViewController canSendMail])
@@ -46,7 +88,7 @@
         //UIImage *myImage = [UIImage imageNamed:@"mobiletuts-logo.png"];
         //NSData *imageData = UIImagePNGRepresentation(myImage);
         //[mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"mobiletutsImage"];
-        NSString *emailBody = @"I have a electrical problem at my home. Please contact me as soon as possible.";
+        NSString *emailBody = [NSString stringWithFormat:@"I have %@ problem at my home. Please contact me as soon as possible.",newString];
         [mailer setMessageBody:emailBody isHTML:NO];
     
         //[parentController presentModalViewController:mailer animated:YES];

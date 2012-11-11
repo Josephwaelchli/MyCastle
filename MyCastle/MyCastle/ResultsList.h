@@ -22,6 +22,7 @@
     UIImage* typeImage;
     NSArray* tableViewArray;
     NSDictionary* goldDict;
+    NSString* whichSearch;
 }
 
 @property (nonatomic,retain) AppDelegate* theAppDel;

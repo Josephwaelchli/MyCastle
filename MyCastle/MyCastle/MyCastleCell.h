@@ -18,6 +18,7 @@
 }
 
 @property(strong, nonatomic)NSString* phoneNumber;
+@property(strong, nonatomic)NSString* whichSearch;
 @property(strong, nonatomic)NSString* hashtag;
 @property(strong, nonatomic)NSString* twitter;
 @property(strong, nonatomic)NSString* bbbLink;

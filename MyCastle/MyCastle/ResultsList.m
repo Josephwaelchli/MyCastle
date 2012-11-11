@@ -47,6 +47,8 @@
         
         typeImage = theImage;
         
+        whichSearch = sTerm;
+        
         CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:theLocation completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -135,6 +137,7 @@
     cell.bbbLink = [goldDict objectForKey:@"bbb_Link"];
     cell.twitter = [goldDict objectForKey:@"twitter"];
     cell.hashtag = [goldDict objectForKey:@"hashtag"];
+    cell.whichSearch = whichSearch;
         return cell;
     }
     else
