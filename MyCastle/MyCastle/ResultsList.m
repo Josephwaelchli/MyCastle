@@ -48,9 +48,9 @@
         CLLocation* theLocation = [[CLLocation alloc] initWithLatitude:43.038349 longitude:-87.927528];
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:theLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            zipCode = [[placemarks objectAtIndex:0] postalCode];
-            [sc asynchronousUrlCall:[[NSDictionary alloc] initWithObjects:@[@"1", YPKEY, @"50", @"distance", zipCode, sTerm, @"20"] forKeys:@[@"phonesearch", @"key", @"radius", @"sort", @"searchloc", @"term", @"listingcount"]]];
-            [self getGoldCompany];
+                zipCode = [[placemarks objectAtIndex:0] postalCode];
+                [sc asynchronousUrlCall:[[NSDictionary alloc] initWithObjects:@[@"1", YPKEY, @"50", @"distance", zipCode, sTerm, @"20"] forKeys:@[@"phonesearch", @"key", @"radius", @"sort", @"searchloc", @"term", @"listingcount"]]];
+                [self getGoldCompany];
         }];
     
     }
@@ -73,17 +73,22 @@
 {
         DatabaseConnector* dbc = [[DatabaseConnector alloc] init];
         NSString* queryString = [NSString stringWithFormat:@"SELECT * FROM gold_Business"];
+
+    @try {
         NSDictionary* queryDict = [[NSDictionary alloc] initWithObjectsAndKeys:queryString, @"query", nil];
-    
-    UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
-    
-    NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"twitter"], nil];
-    
-    NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter", nil];
-    
-    goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
-    
-        databaseFinished = YES;
+        
+        UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"]]]];;
+        
+        NSArray* tempObjects = [[NSArray alloc] initWithObjects:[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],pImage,[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"bbb_Link"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"twitter"], nil];
+        
+        NSArray* tempKeys = [[NSArray alloc] initWithObjects:@"name",@"image",@"phone",@"email",@"address",@"zips",@"bbb_Link",@"twitter", nil];
+        
+        goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
+    }
+    @catch (NSException* exception) {
+        [self handleError:exception];
+    }
+    databaseFinished = YES;
     
     if(databaseFinished == YES && yellowPagesFinished == YES)
     {
@@ -194,6 +199,13 @@
         
         [self.navigationController pushViewController:[[PdfViewer alloc] initWithPdf:url] animated:YES];
     }*/
+}
+
+-(void) handleError:(NSException *)exception
+{
+    [[[UIAlertView alloc]initWithTitle:@"Warning" message:[NSString stringWithFormat:@"Error: %@", @"Failure connecting to database."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+    [theAppDel appStoppedLoading];
+    [theAppDel.nc popViewControllerAnimated:YES];
 }
 
 #pragma mark notifications

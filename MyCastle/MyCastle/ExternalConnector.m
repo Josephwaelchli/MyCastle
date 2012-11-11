@@ -9,6 +9,7 @@
 #import "ExternalConnector.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
+#import "AppDelegate.h"
 
 @implementation ExternalConnector
 
@@ -18,6 +19,7 @@
     url = urlString;
     method = methodString;
     self.items = [[NSMutableArray alloc] init];
+    error = NO;
     return self;
 }
 
@@ -46,8 +48,7 @@
         [xmlParse parse];
     }];
     [formDataRequest setFailedBlock:^{
-        NSError *error = [request error];
-        NSLog(@"Error: %@", error.localizedDescription);
+        [self handleError:[[NSException alloc] initWithName:@"error" reason:@"Failure to connect to database." userInfo:nil]];
     }];
     [formDataRequest startAsynchronous];
 }
@@ -85,6 +86,7 @@
     @catch (NSException *exception)
     {
         NSLog(@"%@", exception.reason);
+        [self handleError:exception];
     }
     @finally
     {
@@ -107,10 +109,12 @@
             
             [self.items addObject:[item copy]];
         }
+        //@throw [[NSException alloc] initWithName:@"error" reason:@"bad code" userInfo:nil];
     }
     @catch (NSException *exception)
     {
         NSLog(@"%@", exception.reason);
+        [self handleError:exception];
     }
     @finally
     {
@@ -150,6 +154,7 @@
     @catch (NSException *exception)
     {
         NSLog(@"%@", exception.reason);
+        [self handleError:exception];
     }
     @finally
     {
@@ -167,12 +172,26 @@
     @catch (NSException *exception)
     {
         NSLog(@"%@", exception.reason);
+        [self handleError:exception];
     }
     @finally
     {
         // NSLog(@"parserDidEndDocument: finally\n");
     }
 
+}
+
+-(void)handleError:(NSException *)exception
+{
+    if(!error)
+    {
+        //replace failure connecting to database with exception
+        [[[UIAlertView alloc]initWithTitle:@"Warning" message:[NSString stringWithFormat:@"Error: %@", @"Failure connecting to database."] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+        AppDelegate* theAppDel = [[UIApplication sharedApplication] delegate];
+        [theAppDel appStoppedLoading];
+        [theAppDel.nc popToRootViewControllerAnimated:YES];
+        error = YES;
+    }
 }
 
 @end

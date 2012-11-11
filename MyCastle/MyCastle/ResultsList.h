@@ -28,6 +28,8 @@
 
 -(IBAction)backButtonPressed:(id)sender;
 
+-(void)handleError:(NSException*)exception;
+
 -(void)searchParsed:(NSNotification*)notice;
 - (void)getGoldCompany;
 
