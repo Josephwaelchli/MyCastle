@@ -11,13 +11,14 @@
 #import "SA_OAuthTwitterController.h"
 #import "Social/Social.h"
 
-@interface MyCastleCell : UIView <MFMailComposeViewControllerDelegate, SA_OAuthTwitterControllerDelegate>
+@interface MyCastleCell : UIView <MFMailComposeViewControllerDelegate, SA_OAuthTwitterControllerDelegate, UIAlertViewDelegate>
 {
     UIViewController* parentController;
     SA_OAuthTwitterEngine    *_engine;
 }
 
 @property(strong, nonatomic)NSString* phoneNumber;
+@property(strong, nonatomic)NSString* hashtag;
 @property(strong, nonatomic)NSString* twitter;
 @property(strong, nonatomic)NSString* bbbLink;
 @property(strong, nonatomic)NSString* email;
