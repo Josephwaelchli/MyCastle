@@ -16,4 +16,10 @@
 @property(strong, nonatomic)NSString* phoneNumber;
 @property(strong, nonatomic)IBOutlet UILabel* addressLabel;
 
+-(IBAction)phoneButtonPressed;
+-(IBAction)emailButtonPressed;
+-(IBAction)bbbButtonPressed;
+-(IBAction)fbButtonPressed;
+-(IBAction)twitterButtonPressed;
+
 @end

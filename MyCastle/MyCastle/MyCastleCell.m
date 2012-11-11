@@ -7,6 +7,7 @@
 //
 
 #import "MyCastleCell.h"
+#import "FacebookConnector.h"
 
 @implementation MyCastleCell
 
@@ -24,6 +25,41 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark IBActions
+
+-(IBAction)phoneButtonPressed
+{
+    NSString* string = [@"tel://" stringByAppendingString:self.phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
+-(IBAction)emailButtonPressed
+{
+    //open e-mail client?
+    
+}
+
+-(IBAction)bbbButtonPressed
+{
+    //open webview?
+    
+}
+
+-(IBAction)fbButtonPressed
+{
+    //post to facebook.
+    if([FacebookConnector isLoggedInToFacebook])
+    {
+        
+    }
+}
+
+-(IBAction)twitterButtonPressed
+{
+    //tweet
+    
 }
 
 @end
