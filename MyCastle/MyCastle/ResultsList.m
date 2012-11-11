@@ -84,6 +84,8 @@
     
     goldDict = [[NSDictionary alloc] initWithObjects:tempObjects forKeys:tempKeys];
     
+    NSLog(@"name: %@\nimage: %@\nphone: %@\nemail: %@\naddress: %@\nzip: %@",[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"name"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"image"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"phone"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"email"],[[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"address"], [[[[dbc getResultsFromQuery:queryDict] objectAtIndex:0] objectAtIndex:0] objectForKey:@"zips"]);
+    
         databaseFinished = YES;
     
     if(databaseFinished == YES && yellowPagesFinished == YES)
