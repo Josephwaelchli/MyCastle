@@ -68,6 +68,7 @@
     UIButton* button = (UIButton*)sender;
     if([theAppDel hasInternetConnection])
     {
+          //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=General"]];
     [self.navigationController pushViewController:[[ResultsList alloc] initWithSearchTerm:[searchTermArray objectAtIndex:button.tag]] animated:YES];
     }
 }
